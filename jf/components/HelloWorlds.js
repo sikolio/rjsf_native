@@ -2,12 +2,11 @@ import React, {Component, PropTypes } from 'react';
 import {
     View,
     Text,
-    StyleSheet,
-    TextInput
+    StyleSheet
 } from 'react-native';
 
 
-export default class HelloWorld extends Component {
+export default class HelloWorlds extends Component {
     render () {
         const { onPress, color, style } = this.props;
         return (
@@ -18,7 +17,7 @@ export default class HelloWorld extends Component {
     }
 }
 
-HelloWorld.propTypes = {
+HelloWorlds.propTypes = {
     onPress: PropTypes.func.isRequired,
     color: PropTypes.string.isRequired,
 }

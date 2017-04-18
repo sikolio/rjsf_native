@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from "react";
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
 import { default as DefaultErrorList } from "./ErrorList";
 import {
@@ -163,11 +163,19 @@ export default class Form extends Component {
 
     const { schema, uiSchema, formData, errorSchema, idSchema } = this.state;
     const registry = this.getRegistry();
-    const _SchemaField = registry.fields.SchemaField;
+    const SchemaField = registry.fields.SchemaField;
 
+
+
+    const style = StyleSheet.create({
+      double: {
+        flex: 0.95,
+        backgroundColor: 'red'
+      }
+    })
     return (
       <View
-        className={className ? className : "rjsf"}
+        style={style.double}
         id={id}
         name={name}
         method={method}
@@ -178,8 +186,7 @@ export default class Form extends Component {
         acceptCharset={acceptcharset}
         noValidate={noHtml5Validate}
         onSubmit={this.onSubmit}>
-        {this.renderErrors()}
-        <_SchemaField
+        <SchemaField
           schema={schema}
           uiSchema={uiSchema}
           errorSchema={errorSchema}
@@ -192,7 +199,7 @@ export default class Form extends Component {
         />
         {children
           ? children
-          : <Button type="submit" className="btn btn-info">Submit</Button>}
+          : <Button onPress={this.onSubmit} title={"submit"}>Submit</Button>}
       </View>
     );
   }

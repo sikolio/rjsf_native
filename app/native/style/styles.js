@@ -4,6 +4,7 @@ export const appStyle = StyleSheet.create({
     reactNativeWeb: {
         flexDirection: 'column',
         flex: 1,
-        justifyContent: 'center'
+        justifyContent: 'flex-end',
+        marginTop: 20,
     }
 })

@@ -5,6 +5,8 @@ import HelloWorld from '../components/HelloWorld';
 import {
     toggleColor
 } from '../../actions/actions';
+import Form from 'react-jsonschema-form';
+import { EXAMPLE_SCHEMA } from '../../constants/Constants'
 
 class ReactNativeWeb extends Component {
     render () {
@@ -12,11 +14,7 @@ class ReactNativeWeb extends Component {
 
         return (
             <div className="react-native-web">
-                <Header />
-                <HelloWorld 
-                    onClick={() => dispatch(toggleColor())}
-                    color={color}
-                />
+                <Form schema={EXAMPLE_SCHEMA}/>
             </div>
         );
     }

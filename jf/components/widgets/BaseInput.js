@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
 function BaseInput(props) {
   // Note: since React 15.2.0 we can't forward unknown element attributes, so we
@@ -16,18 +16,24 @@ function BaseInput(props) {
     registry,
     ...inputProps
   } = props;
-  const _onChange = ({ target: { value } }) => {
+  const _onChange = (value) => {
     return props.onChange(value === "" ? undefined : value);
   };
+
+
+  const style = StyleSheet.create({
+    double: {
+      flexGrow: 2,
+      backgroundColor: 'white',
+      height: 20,
+    }
+  })
   return (
     <TextInput
+      style={style.double}
       {...inputProps}
-      className="form-control"
-      readOnly={readonly}
-      disabled={disabled}
-      autoFocus={autofocus}
       value={value == null ? "" : value}
-      onChange={_onChange}
+      onChangeText={_onChange}
       onBlur={onBlur && (event => onBlur(inputProps.id, event.target.value))}
     />
   );
@@ -40,19 +46,5 @@ BaseInput.defaultProps = {
   readonly: false,
   autofocus: false,
 };
-
-if (process.env.NODE_ENV !== "production") {
-  BaseInput.propTypes = {
-    id: PropTypes.string.isRequired,
-    placeholder: PropTypes.string,
-    value: PropTypes.any,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
-    onChange: PropTypes.func,
-    onBlur: PropTypes.func,
-  };
-}
 
 export default BaseInput;

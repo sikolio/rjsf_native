@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
 import {
   isMultiSelect,
@@ -38,8 +38,13 @@ function Label(props) {
     // See #312: Ensure compatibility with old versions of React.
     return <View />;
   }
+  const style = StyleSheet.create({
+    double: {
+      height: 20
+    }
+  })
   return (
-    <Text>
+    <Text style={style.double}>
       {required ? label + REQUIRED_FIELD_SYMBOL : label}
     </Text>
   );
@@ -54,7 +59,7 @@ function Help(props) {
   if (typeof help === "string") {
     return <Text>{help}</Text>;
   }
-  return <View className="help-block">{help}</View>;
+  return <View>{help}</View>;
 }
 
 function ErrorList(props) {
@@ -90,9 +95,17 @@ function DefaultTemplate(props) {
     return children;
   }
 
+  const style = StyleSheet.create({
+    double: {
+      flexGrow: 2,
+      backgroundColor: '#cccccc',
+      height: 40
+    }
+  })
+
   return (
-    <View className={classNames}>
-      {displayLabel && <Text label={label} required={required} id={id} />}
+    <View style={style.double}>
+      {displayLabel && <Label label={label} required={required} id={id} />}
       {displayLabel && description ? description : null}
       {children}
       {errors}
