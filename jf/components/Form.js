@@ -170,7 +170,6 @@ export default class Form extends Component {
     const style = StyleSheet.create({
       double: {
         flex: 1,
-        // backgroundColor: 'red'
       }
     })
     return (

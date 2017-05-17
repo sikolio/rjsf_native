@@ -1,7 +1,5 @@
 import React, { Component, PropTypes }  from 'react';
 import { connect } from 'react-redux';
-// import Header from '../components/Header';
-// import HelloWorld from '../components/HelloWorld';
 
 import { draftSample } from '../../../form-designer-parser/lib/samples';
 import { jsonSchema } from '../../../form-designer-parser';

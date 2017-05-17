@@ -42,6 +42,7 @@ function Label(props) {
     double: {
       fontWeight: 'bold',
       fontSize: 16,
+      marginTop: 10,
       paddingTop: 5,
       paddingBottom: 5
     }
