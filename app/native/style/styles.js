@@ -6,5 +6,6 @@ export const appStyle = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         marginTop: 20,
+        padding: 10
     }
 })

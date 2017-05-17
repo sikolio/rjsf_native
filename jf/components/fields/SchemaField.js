@@ -40,7 +40,10 @@ function Label(props) {
   }
   const style = StyleSheet.create({
     double: {
-      height: 20
+      fontWeight: 'bold',
+      fontSize: 16,
+      paddingTop: 5,
+      paddingBottom: 5
     }
   })
   return (
@@ -98,8 +101,8 @@ function DefaultTemplate(props) {
   const style = StyleSheet.create({
     double: {
       flexGrow: 2,
-      backgroundColor: '#cccccc',
-      height: 40
+      // backgroundColor: '#eee',
+      // height: 40
     }
   })
 

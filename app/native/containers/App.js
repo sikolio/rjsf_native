@@ -3,18 +3,36 @@ import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { appStyle } from '../style/styles';
 
+import { draftSample } from '../../../form-designer-parser/lib/samples';
+
+import { toDraftSchema, jsonSchema } from '../../../form-designer-parser';
+
 import Header from '../components/Header';
 import HelloWorld from '../components/HelloWorld';
 import Form from '../../../jf/components/Form';
-import {EXAMPLE_SCHEMA} from '../../constants/Constants';
+import { URL, EXAMPLE_SCHEMA, EXAMPLE_UI_SCHEMA } from '../../constants/Constants';
 
 import {
     toggleColor
 } from '../../actions/actions';
 
 class ReactNativeWeb extends Component {
-    schema = EXAMPLE_SCHEMA
+
+    jsf = jsonSchema(draftSample);
+    schema = EXAMPLE_SCHEMA;
+    uiSchema = EXAMPLE_UI_SCHEMA;
+    getMoviesFromApiAsync() {
+      return fetch(URL + '/forms')
+        .then((response) => response.json())
+        .then((responseJson) => {
+          console.log(responseJson);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
     render () {
+      this.getMoviesFromApiAsync();
         const { dispatch, color, data } = this.props;
         const style = StyleSheet.create({
             helloWorld: {
@@ -23,9 +41,9 @@ class ReactNativeWeb extends Component {
             },
         });
         return (
-            <View style={appStyle.reactNativeWeb}>
-                <Form schema={this.schema} formData={this.formData}/>
-            </View>
+          <View style={appStyle.reactNativeWeb}>
+            <Form schema={this.jsf}/>
+          </View>
         );
     }
 }

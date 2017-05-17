@@ -1,0 +1,25 @@
+{
+  "name": "@commvault/form-designer-parser",
+  "version": "0.0.1",
+  "description": "Commvault's agnostic library to parse forms and columns models into JSON schemas for the form viewer.",
+  "main": "lib/index",
+  "typings": "lib/index",
+  "author": "Sebastian Soto <sebastian@coddde.com>",
+  "license": "MIT",
+  "repository": "https://spsotor@bitbucket.org/spsotor/form-designer-parser.git",
+  "devDependencies": {
+    "@types/node": "^7.0.12",
+    "typescript": "^2.2.2"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.59",
+    "lodash": "^4.17.4",
+    "nodemon": "^1.11.0",
+    "ts-node": "^3.0.2"
+  },
+  "scripts": {
+    "test": "npm run build:live",
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/test.ts",
+    "build": "./node_modules/.bin/tsc"
+  }
+}

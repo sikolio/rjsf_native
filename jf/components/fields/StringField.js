@@ -32,8 +32,21 @@ function StringField(props) {
   );
   const Widget = getWidget(schema, widget, widgets);
 
+  const style = StyleSheet.create({
+    input: {
+      fontSize:  14,
+      height: 30,
+      backgroundColor: '#fff',
+      borderColor: '#999',
+      borderWidth: 0.5,
+      paddingLeft: 10,
+      paddingRight: 10
+    }
+  })
+
   return (
     <Widget
+      style={style.input}
       options={{ ...options, enumOptions }}
       schema={schema}
       id={idSchema && idSchema.$id}

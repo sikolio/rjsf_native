@@ -169,8 +169,8 @@ export default class Form extends Component {
 
     const style = StyleSheet.create({
       double: {
-        flex: 0.95,
-        backgroundColor: 'red'
+        flex: 1,
+        // backgroundColor: 'red'
       }
     })
     return (
