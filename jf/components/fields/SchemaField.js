@@ -101,9 +101,7 @@ function DefaultTemplate(props) {
 
   const style = StyleSheet.create({
     double: {
-      flexGrow: 2,
-      // backgroundColor: '#eee',
-      // height: 40
+      flexGrow: 2
     }
   })
 
