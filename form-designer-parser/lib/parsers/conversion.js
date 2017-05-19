@@ -42,6 +42,7 @@ function toFormSchema(draftSchema) {
     formSchema.unusedColumnsIds = draftSchema.unusedColumns.map(function (column) { return column.id; });
     delete formSchema["unusedColumns"];
     delete formSchema["state"];
+    delete formSchema["$schema"];
     formSchema.widgets = formSchema.widgets.map(function (widget) {
         var newWidget = __assign({}, widget, { fields: widget.fields.map(function (field) {
                 var newField = __assign({}, field, { columnId: field.column.id });

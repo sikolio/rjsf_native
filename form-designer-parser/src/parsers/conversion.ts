@@ -1,4 +1,4 @@
-import { FormSchema, DraftSchema, Column } from 'models';
+import { FormSchema, DraftSchema, Column } from '../models';
 
 export function toDraftSchema(formSchema: FormSchema.schema, columns: Column[]): DraftSchema.schema {
   // This makes reordering simpler

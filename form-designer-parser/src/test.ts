@@ -7,7 +7,7 @@ const inspect = (object: any, ...args) => console.log.apply(null, [...args, util
 /**
  * Required imports
  */
-import { Column } from 'models';
+import { Column } from './models';
 import { toDraftSchema, jsonSchema } from './parsers';
 
 import { formSample, columnSamples } from './samples';

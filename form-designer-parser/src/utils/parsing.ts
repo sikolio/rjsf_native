@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-import { deepTransformKeys } from 'utils/deep-transform-keys';
+import { deepTransformKeys } from './deep-transform-keys';
 
 export const deserializeString = (key) => {
   if (_.isString(key)) {

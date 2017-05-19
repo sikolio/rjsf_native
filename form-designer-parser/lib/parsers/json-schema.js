@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 function jsonSchema(formSchema) {
     var schema = {
-        // $schema: "http://json-schema.org/draft-04/schema#",
+        $schema: "http://json-schema.org/draft-04/schema#",
         title: formSchema.title,
         description: formSchema.introductoryText,
         type: 'object',

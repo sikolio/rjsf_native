@@ -1,4 +1,4 @@
-import { JSONSchema, DraftSchema } from 'models';
+import { JSONSchema, DraftSchema } from '../models';
 /**
  * Creates JSON Schema from Table and Columns models.
  *

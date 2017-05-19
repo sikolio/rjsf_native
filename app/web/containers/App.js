@@ -2,21 +2,47 @@ import React, { Component, PropTypes }  from 'react';
 import { connect } from 'react-redux';
 
 import { draftSample } from '../../../form-designer-parser/lib/samples';
-import { jsonSchema } from '../../../form-designer-parser';
+import { toDraftSchema, jsonSchema, deepParseObject } from '../../../form-designer-parser';
 
 import { toggleColor } from '../../actions/actions';
 import Form from 'react-jsonschema-form';
 
-import { EXAMPLE_SCHEMA } from '../../constants/Constants'
+import { URL, EXAMPLE_SCHEMA } from '../../constants/Constants'
 
 class ReactNativeWeb extends Component {
+    constructor() {
+      super();
+      form: {};
+      this.state = {
+        schema: {}
+      };
+
+      fetch(URL + '/forms/1')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.form = responseJson;
+        fetch(URL + `/tables/${this.form.table_id}/columns`)
+        .then((response) => response.json())
+        .then((columns) => {
+          this.setState({
+            schema: jsonSchema(toDraftSchema(deepParseObject(this.form), deepParseObject(columns)))
+          })
+        })
+      })
+
+    }
+
+    submitForm(formData) {
+      console.log(formData.formData);
+    }
+
     render () {
-      const jsf = jsonSchema(draftSample);
       const { dispatch, color, data } = this.props;
 
       return (
         <div className="container">
-          <Form schema={jsf}/>
+          <Form schema={this.state.schema}
+          onSubmit={this.submitForm}/>
         </div>
       );
     }

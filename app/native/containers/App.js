@@ -18,7 +18,7 @@ class ReactNativeWeb extends Component {
     schema = EXAMPLE_SCHEMA;
     uiSchema = EXAMPLE_UI_SCHEMA;
     getForms() {
-      return fetch(URL + '/forms')
+      return fetch(URL + '/forms/1')
         .then((response) => response.json())
         .then((responseJson) => {
           console.log(responseJson);

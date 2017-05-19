@@ -1,4 +1,4 @@
-export const URL = 'http://localhost:3000';
+export const URL = 'http://174.138.70.49:3000';
 export const TOGGLE_COLOR = 'TOGGLE_COLOR';
 export const EXAMPLE_REQUEST_START = 'EXAMPLE_REQUEST_START';
 export const EXAMPLE_REQUEST_DATA = 'EXAMPLE_REQUEST_DATA';

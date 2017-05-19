@@ -4,10 +4,10 @@ exports.draftSample = {
     formId: '1',
     tableId: '1',
     state: {
-        saved: false,
+        saved: true,
         lastSaved: '5 minutes ago',
-        requiresRedraw: false,
-        widgetCount: 2,
+        requiresRedraw: true,
+        widgetCount: 1,
     },
     title: 'Satisfaction Reports',
     introductoryText: 'Customer satisfaction reports for 2016. This is the first text provided to the user on top of the form.',
@@ -26,14 +26,14 @@ exports.draftSample = {
                 columns: 1
             },
             state: {
-                requiresRedraw: true,
+                requiresRedraw: false,
                 fieldCount: 1
             },
             fields: [
                 {
                     inFormId: '1',
                     fieldId: '1',
-                    widgetType: 'string',
+                    widgetType: 'boolean',
                     label: 'Name',
                     name: 'name',
                     readonly: false,
@@ -46,8 +46,8 @@ exports.draftSample = {
                         slug: 'name',
                         tableId: '1',
                         name: 'Name',
-                        description: 'Client name',
-                        type: 'string',
+                        description: 'Your full name',
+                        type: 'boolean',
                         version: '15',
                         createdAt: '2017-04-06T22:24:14.887+00:00',
                         modified: {
@@ -60,51 +60,11 @@ exports.draftSample = {
                 }
             ]
         },
-        {
-            id: 2,
-            formId: '1',
-            type: 'formGroup',
-            settings: {},
-            state: {
-                requiresRedraw: true,
-                fieldCount: 1
-            },
-            fields: [
-                {
-                    inFormId: '1',
-                    fieldId: '1',
-                    widgetType: 'string',
-                    label: 'Last Name',
-                    name: 'lastname',
-                    readonly: false,
-                    disabled: false,
-                    placeholder: 'Last name',
-                    helpBlock: '',
-                    defaultValue: '',
-                    column: {
-                        id: '6',
-                        slug: 'lastname',
-                        tableId: '1',
-                        name: 'Last Name',
-                        description: 'Client last name',
-                        type: 'string',
-                        version: '7',
-                        createdAt: '2017-05-04T19:41:38.238+00:00',
-                        modified: {
-                            name: 'John Doe',
-                            at: '2017-05-07T23:01:38.684+00:00',
-                            id: '1'
-                        }
-                    },
-                    widgetSettings: {}
-                }
-            ]
-        }
     ],
     unusedColumns: [
         {
             id: '3',
-            slug: 'test',
+            slug: 'test1',
             tableId: '1',
             name: 'Last name',
             description: 'Client last name',
@@ -119,7 +79,7 @@ exports.draftSample = {
         },
         {
             id: '5',
-            slug: 'test',
+            slug: 'test2',
             tableId: '1',
             name: 'test1',
             description: 'asasas',

@@ -1,4 +1,4 @@
-import { Modified } from 'models/modified';
+import { Modified } from './modified';
 /**
  * Module containing all the interfaces relating to a FormSchema. Root interface is FormSchema.schema.
  */

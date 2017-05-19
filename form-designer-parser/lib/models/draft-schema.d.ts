@@ -1,5 +1,5 @@
-import { Modified } from 'models/modified';
-import { Column } from 'models/column';
+import { Modified } from './modified';
+import { Column } from './column';
 /**
  * Module containing all the interfaces relating to a FormSchema. Root interface is FormSchema.schema.
  */
@@ -11,7 +11,7 @@ export declare module DraftSchema {
      * @interface schema
      */
     interface schema {
-        formId: string;
+        formId?: string;
         tableId: string;
         version?: string;
         title: string;
