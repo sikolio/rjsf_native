@@ -1,0 +1,20 @@
+import { DraftSchema, Table, Column, Modified } from '../models';
+export declare function draftSchemaInitialCondition(table: Table, columns: Column[]): {
+    tableId: string;
+    title: string;
+    introductoryText: string;
+    unusedColumns: Column[];
+    formId?: string;
+    version?: string;
+    greetingText: string;
+    published: boolean;
+    acceptsResponses: boolean;
+    showResetButton: boolean;
+    startDate: string;
+    endDate: string;
+    widgets: DraftSchema.layoutWidget[];
+    validations?: DraftSchema.validation[];
+    createdAt?: string;
+    modified?: Modified;
+    state: DraftSchema.draftState;
+};
