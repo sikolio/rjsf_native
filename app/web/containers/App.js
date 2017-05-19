@@ -7,24 +7,34 @@ import { toDraftSchema, jsonSchema, deepParseObject } from '../../../form-design
 import { toggleColor } from '../../actions/actions';
 import Form from 'react-jsonschema-form';
 
-import { URL, EXAMPLE_SCHEMA } from '../../constants/Constants'
+import { URL, EXAMPLE_SCHEMA } from '../../constants/Constants';
+
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
 
 class ReactNativeWeb extends Component {
-    constructor() {
-      super();
+  render() {
+    return (
+      <Router history={browserHistory}>
+        <Route path='/:id' component={App} />
+      </Router>
+    )
+  }
+}
+
+class App extends Component {
+    constructor(props) {
+      super(props);
       form: {};
       this.state = {
         schema: {}
       };
-
-      fetch(URL + '/forms/1')
+      fetch(URL + '/forms/' + this.props.params.id)
       .then((response) => response.json())
       .then((responseJson) => {
         this.form = responseJson;
         fetch(URL + `/tables/${this.form.table_id}/columns`)
         .then((response) => response.json())
         .then((columns) => {
-          console.log(jsonSchema(toDraftSchema(deepParseObject(this.form), deepParseObject(columns))));
           this.setState({
             schema: jsonSchema(toDraftSchema(deepParseObject(this.form), deepParseObject(columns)))
           })
@@ -35,11 +45,7 @@ class ReactNativeWeb extends Component {
 
     submitForm(formData) {
       const schema = formData.formData;
-      // console.log(this.form);
-      // fetch(url + '/form-data', {
-      //   method: 'POST',
-      //   body: JSON.stringify(formData)
-      // });
+      console.log(schema);
     }
 
     render () {
@@ -54,10 +60,10 @@ class ReactNativeWeb extends Component {
     }
 }
 
-ReactNativeWeb.propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    color: PropTypes.string.isRequired,
-    data: PropTypes.object.isRequired
+App.propTypes = {
+    // dispatch: PropTypes.func.isRequired,
+    // color: PropTypes.string.isRequired,
+    // data: PropTypes.object.isRequired
 }
 
 const select = state => state;
