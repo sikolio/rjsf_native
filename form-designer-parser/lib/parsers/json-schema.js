@@ -25,7 +25,7 @@ function jsonSchema(formSchema) {
         .filter(function (widget) { return widget.type === 'formGroup'; })
         .forEach(function (widget) {
         widget.fields.forEach(function (field) {
-            schema["properties"][field.column.slug] = {
+            schema["properties"][field.column.name] = {
                 type: field.column.type,
                 title: field.label || field.name || field.column.name,
                 description: field.helpBlock || field.column.description

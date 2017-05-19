@@ -24,6 +24,7 @@ class ReactNativeWeb extends Component {
         fetch(URL + `/tables/${this.form.table_id}/columns`)
         .then((response) => response.json())
         .then((columns) => {
+          console.log(jsonSchema(toDraftSchema(deepParseObject(this.form), deepParseObject(columns))));
           this.setState({
             schema: jsonSchema(toDraftSchema(deepParseObject(this.form), deepParseObject(columns)))
           })
@@ -33,7 +34,12 @@ class ReactNativeWeb extends Component {
     }
 
     submitForm(formData) {
-      console.log(formData.formData);
+      const schema = formData.formData;
+      // console.log(this.form);
+      // fetch(url + '/form-data', {
+      //   method: 'POST',
+      //   body: JSON.stringify(formData)
+      // });
     }
 
     render () {
