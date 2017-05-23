@@ -45,7 +45,16 @@ class App extends Component {
 
     submitForm(formData) {
       const schema = formData.formData;
-      console.log(schema);
+      schema.formId = this.form.sys_form_id;
+      schema.tableId = this.form.table_id;
+      fetch(URL + '/data', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({schema})
+      });
     }
 
     render () {
@@ -54,7 +63,7 @@ class App extends Component {
       return (
         <div className="container">
           <Form schema={this.state.schema}
-          onSubmit={this.submitForm}/>
+          onSubmit={this.submitForm.bind(this)}/>
         </div>
       );
     }
